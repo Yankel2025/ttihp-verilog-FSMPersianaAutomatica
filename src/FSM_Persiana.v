@@ -13,20 +13,20 @@ FSM_moore moore(
   .ba(cerrada),
   .auto(automatico),
   .reloj(Reloj),
-  reset(reset),
+  .reset(reset),
   .sensor(sensor),
   .P(posicion)
 );
 
 FSM_mealy mealy(
-  posicion,
-  Ssup,
-  Smed,
-  Sinf,
-  Reloj,
-  reset,
-  subir,
-  bajar
+  .P(posicion),
+  .Ssup(Ssup),
+  .Smed(Smed),
+  .Sinf(Sinf),
+  .reloj(Reloj),
+  .reset(reset),
+  .subir(subir),
+  .bajar(bajar)
 );
 
 endmodule
