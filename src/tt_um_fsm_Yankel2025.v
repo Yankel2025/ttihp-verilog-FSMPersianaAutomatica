@@ -2,6 +2,7 @@
 
 module tt_um_fsm_Yankel2025 (
   input        clk,
+  input        rst_n,
   input        ena,
   input  [7:0] ui_in,
   output [7:0] uo_out,
@@ -10,7 +11,7 @@ module tt_um_fsm_Yankel2025 (
   output [7:0] uio_oe
 );
   wire [8:0] sw = {uio_in[0], ui_in};  // sw[8:0]
-  wire btnC = uio_in[1];
+  wire btnC = ~rst_n;
   wire [2:0] led;
   
     reg cerrar,medio,abrir;    // variables internas de acciones de usuario
