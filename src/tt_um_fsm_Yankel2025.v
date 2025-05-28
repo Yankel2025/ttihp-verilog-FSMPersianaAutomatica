@@ -7,13 +7,13 @@ module tt_um_fsm_Yankel2025 (
   output [2:0] led
 );
     
-    logic wire cerrar,medio,abrir;    // variables internas de acciones de usuario
-    logic wire auto; 
-    logic wire [1:0] Sensor;    // variable interna para recibir la instruccion del sensor
-    logic wire Ssupe,Smedi,Sinfe;    // variables para obtener el valor de los sensores de la persiana
-    logic reg [24:0] clk_nuevo;    // señal de reloj para escalar
-    logic wire reseteo;    // reinicio de datos de entrada
-    logic reg arriba, abajo;    // acciones de la persiana
+    wire cerrar,medio,abrir;    // variables internas de acciones de usuario
+    wire auto; 
+    wire [1:0] Sensor;    // variable interna para recibir la instruccion del sensor
+    wire Ssupe,Smedi,Sinfe;    // variables para obtener el valor de los sensores de la persiana
+    reg [24:0] clk_nuevo;    // señal de reloj para escalar
+    wire reseteo;    // reinicio de datos de entrada
+    reg arriba, abajo;    // acciones de la persiana
     
     assign reseteo = btnC;    // guarda señal de reinicio
     assign Sensor = sw[5:4];    // recibe señal de sensor
