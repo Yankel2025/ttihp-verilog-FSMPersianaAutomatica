@@ -8,14 +8,14 @@ module FSM_Persiana(input wire abierta,media,cerrada,automatico,
 wire [1:0] posicion;
 
 FSM_moore moore(
-  abierta,
-  media,
-  cerrada,
-  automatico,
-  Reloj,
-  reset,
-  sensor,
-  posicion
+  .ab(abierta),
+  .me(media),
+  .ba(cerrada),
+  .auto(automatico),
+  .reloj(Reloj),
+  reset(reset),
+  .sensor(sensor),
+  .P(posicion)
 );
 
 FSM_mealy mealy(
