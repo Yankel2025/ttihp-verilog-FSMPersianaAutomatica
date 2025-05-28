@@ -29,7 +29,7 @@ always begin
  end
 
 //REGISTRO
-always_ff @(posedge reloj, posedge reset)
+always @(posedge reloj, posedge reset)
     if(reset) state<=S0;
     else state<=nextstate;
 
