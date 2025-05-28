@@ -50,7 +50,7 @@ module tt_um_fsm_Yankel2025 (
     
     
     // Llamada a funcion de Maquina de Estado Finito (FSM) y regreso de accion de maquina
-    FSM_Persianas persianas(.abierta(abrir),.media(medio),.cerrada(cerrar),.automatico(auto),
+    FSM_Persiana persianas(.abierta(abrir),.media(medio),.cerrada(cerrar),.automatico(auto),
                       .Reloj(clk_nuevo[24]),.reset(reseteo),.Ssup(Ssupe),.Smed(Smedi),.Sinf(Sinfe),
                       .sensor(Sensor),.subir(arriba),.bajar(abajo));
      
