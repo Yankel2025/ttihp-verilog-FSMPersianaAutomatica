@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
-module FSM_mealy(input wire [1:0] P,
-                 input wire Ssup,Smed,Sinf,reloj,reset,
-                 output wire subir,bajar);
+module Mealy(input wire [1:0] P,
+             input wire Ssup,Smed,Sinf,reloj,reset,
+             output wire subir,bajar);
                  
 logic stop_actuador_subir,stop_actuador_bajar;
 logic a,sub,baj;
