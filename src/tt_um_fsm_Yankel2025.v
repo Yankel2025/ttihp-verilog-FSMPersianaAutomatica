@@ -1,4 +1,4 @@
-
+`timescale 1ns / 1ps
 
 module tt_um_fsm_Yankel2025 (
   input [8:0] sw,
