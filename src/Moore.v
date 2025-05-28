@@ -1,4 +1,3 @@
-`timescale 1ns / 1ps
 
 module Moore(input wire ab,me,ba,auto,reloj,reset,
                  input wire [1:0] sensor,
