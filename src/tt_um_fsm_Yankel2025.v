@@ -11,7 +11,7 @@ module tt_um_fsm_Yankel2025 (
     logic wire auto; 
     logic wire [1:0] Sensor;    // variable interna para recibir la instruccion del sensor
     logic wire Ssupe,Smedi,Sinfe;    // variables para obtener el valor de los sensores de la persiana
-    logic wire[24:0] clk_nuevo;    // señal de reloj para escalar
+    logic wire [24:0] clk_nuevo;    // señal de reloj para escalar
     logic wire reseteo;    // reinicio de datos de entrada
     logic wire arriba, abajo;    // acciones de la persiana
     
@@ -21,11 +21,11 @@ module tt_um_fsm_Yankel2025 (
     assign Smedi = sw[7];
     assign Ssupe = sw[8];
     
-    always_ff @(posedge clk)    // escalado de tiempo de la señal de reloj interna de 100MHz
+    always @(posedge clk)    // escalado de tiempo de la señal de reloj interna de 100MHz
         clk_nuevo <= clk_nuevo + 1;
     
     
-    always_ff @(posedge clk_nuevo[24], posedge reseteo)
+    always @(posedge clk_nuevo[24], posedge reseteo)
         begin
             if (reseteo) begin
                 cerrar <= 1'b0;
