@@ -4,6 +4,7 @@ module tt_um_fsm_Yankel2025 (
   input [8:0] sw,
   input btnC,
   input clk,
+  input ena,
   output [2:0] led
 );
     
