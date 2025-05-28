@@ -5,7 +5,7 @@ project:
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "Control de persiana automatica o por comandos de ususario."      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     450000000       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     100M       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
@@ -31,9 +31,11 @@ pinout:
   ui[2]: "sw[2]"
   ui[3]: "sw[3]"
   ui[4]: "sw[4]"
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[5]: "sw[5]"
+  ui[6]: "sw[6]"
+  ui[7]: "sw[7]"
+  ui[8]: "sw[8]"
+  ui[9]: "btnC"
 
   # Outputs
   uo[0]: "led[0]"
