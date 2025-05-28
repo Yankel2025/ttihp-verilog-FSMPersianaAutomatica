@@ -1,13 +1,18 @@
 `timescale 1ns / 1ps
 
 module tt_um_fsm_Yankel2025 (
-  input [8:0] sw,
-  input btnC,
-  input clk,
-  input ena,
-  output [2:0] led
+  input        clk,
+  input        ena,
+  input  [7:0] ui_in,
+  output [7:0] uo_out,
+  input  [7:0] uio_in,
+  output [7:0] uio_out,
+  output [7:0] uio_oe
 );
-    
+  wire [8:0] sw = {uio_in[0], ui_in};  // sw[8:0]
+  wire btnC = uio_in[1];
+  wire [2:0] led;
+  
     reg cerrar,medio,abrir;    // variables internas de acciones de usuario
     reg auto; 
     wire [1:0] Sensor;    // variable interna para recibir la instruccion del sensor
@@ -53,5 +58,9 @@ module tt_um_fsm_Yankel2025 (
     assign led[2] = clk_nuevo[24];    // muestra señal de reloj       
     assign led[1] = arriba;    // muestra si esta subiendo persiana
     assign led[0] = abajo;    // muestra si esta bajando persiana
+
+  assign uo_out  = {5'b00000, led};  // sólo usamos bits 2:0
+  assign uio_out = 8'b00000000;      // no estamos manejando salida bidireccional
+  assign uio_oe  = 8'b00000000;      // no activamos salida en ningún uio pin
     
 endmodule
