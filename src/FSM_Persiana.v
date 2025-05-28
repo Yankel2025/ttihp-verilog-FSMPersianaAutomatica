@@ -5,10 +5,28 @@ module FSM_Persiana(input wire abierta,media,cerrada,automatico,
                      input wire Ssup,Smed,Sinf,
                      input wire [1:0] sensor,
                      output wire subir, bajar);
-logic wire [1:0] posicion;
+wire [1:0] posicion;
 
-FSM_moore moore(abierta,media,cerrada,automatico,Reloj,reset,sensor,posicion);
+FSM_moore moore(
+  abierta,
+  media,
+  cerrada,
+  automatico,
+  Reloj,
+  reset,
+  sensor,
+  posicion
+);
 
-FSM_mealy mealy(posicion,Ssup,Smed,Sinf,Reloj,reset,subir,bajar);
+FSM_mealy mealy(
+  posicion,
+  Ssup,
+  Smed,
+  Sinf,
+  Reloj,
+  reset,
+  subir,
+  bajar
+);
 
 endmodule
