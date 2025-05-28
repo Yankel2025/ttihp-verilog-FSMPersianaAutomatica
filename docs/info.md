@@ -9,12 +9,12 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Controla una persiana según instrucciones de usuario o funcion automático mediante sensor de iluminación de salida binaria.
 
 ## How to test
 
-Explain how to use your project
+None.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+switch, leds y pulsador.
