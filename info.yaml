@@ -36,7 +36,6 @@ pinout:
   ui[7]: "sw[7]"
   ui[8]: "sw[8]"
   ui[9]: "btnC"
-  ui[10]: "clk"
 
   # Outputs
   uo[0]: "led[0]"
