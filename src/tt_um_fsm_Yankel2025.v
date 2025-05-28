@@ -7,13 +7,13 @@ module tt_um_fsm_Yankel2025 (
   output [2:0] led
 );
     
-    wire cerrar,medio,abrir;    // variables internas de acciones de usuario
-    wire auto; 
+    reg cerrar,medio,abrir;    // variables internas de acciones de usuario
+    reg auto; 
     wire [1:0] Sensor;    // variable interna para recibir la instruccion del sensor
     wire Ssupe,Smedi,Sinfe;    // variables para obtener el valor de los sensores de la persiana
     reg [24:0] clk_nuevo;    // señal de reloj para escalar
     wire reseteo;    // reinicio de datos de entrada
-    reg arriba, abajo;    // acciones de la persiana
+    wire arriba, abajo;    // acciones de la persiana
     
     assign reseteo = btnC;    // guarda señal de reinicio
     assign Sensor = sw[5:4];    // recibe señal de sensor
@@ -33,30 +33,13 @@ module tt_um_fsm_Yankel2025 (
                 abrir <= 1'b0;
                 auto <= 1'b0;
             end else begin
-                if (sw[3:0] == 4'b0001 ) begin
-                    cerrar <= 1'b1;
-                    medio <= 1'b0;
-                    abrir <= 1'b0;
-                    auto <= 1'b0;
-                end
-                if (sw[3:0] == 4'b0010 ) begin
-                    cerrar <= 1'b0;
-                    medio <= 1'b1;
-                    abrir <= 1'b0;
-                    auto <= 1'b0;
-                end
-                if (sw[3:0] == 4'b0100 ) begin
-                    cerrar <= 1'b0;
-                    medio <= 1'b0;
-                    abrir <= 1'b1;
-                    auto <= 1'b0;
-                end
-                if (sw[3:0] == 4'b1000 ) begin
-                    cerrar <= 1'b0;
-                    medio <= 1'b0;
-                    abrir <= 1'b0;
-                    auto <= 1'b1;
-                end
+                case (sw[3:0])
+                4'b0001: begin cerrar <= 1; medio <= 0; abrir <= 0; auto <= 0; end
+                4'b0010: begin cerrar <= 0; medio <= 1; abrir <= 0; auto <= 0; end
+                4'b0100: begin cerrar <= 0; medio <= 0; abrir <= 1; auto <= 0; end
+                4'b1000: begin cerrar <= 0; medio <= 0; abrir <= 0; auto <= 1; end
+                default: begin cerrar <= 0; medio <= 0; abrir <= 0; auto <= 0; end
+            endcase
             end
         end
     
