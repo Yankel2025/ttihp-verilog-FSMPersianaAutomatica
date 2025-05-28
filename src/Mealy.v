@@ -4,8 +4,8 @@ module Mealy(input wire [1:0] P,
              input wire Ssup,Smed,Sinf,reloj,reset,
              output wire subir,bajar);
                  
-logic stop_actuador_subir,stop_actuador_bajar;
-logic a,sub,baj;
+wire stop_actuador_subir,stop_actuador_bajar;
+reg a,sub,baj;
 
 typedef enum logic reg [1:0] {S0,S1,S2} tipo_estado;
 tipo_estado state, nextstate;
