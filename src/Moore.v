@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 
-module FSM_moore(input wire ab,me,ba,auto,reloj,reset,
+module Moore(input wire ab,me,ba,auto,reloj,reset,
                  input wire [1:0] sensor,
                  output logic [1:0] P);
-logic wire [1:0] nivel,state,nextstate;
+reg [1:0] nivel,state,nextstate;
  
 // CODIFICACIÓN DE ENTRADAS
 assign nivel[1]=(((~me)&(~ba)&sensor[1])&(~sensor[0])&auto)|ab;
