@@ -62,5 +62,7 @@ module tt_um_fsm_Yankel2025 (
   assign uo_out  = {5'b00000, led};  // sólo usamos bits 2:0
   assign uio_out = 8'b00000000;
   assign uio_oe  = 8'b00000000;    // Configura todos los pines uio como entradas
+
+  wire [7:0] unused_uio_in = uio_in;
     
 endmodule
