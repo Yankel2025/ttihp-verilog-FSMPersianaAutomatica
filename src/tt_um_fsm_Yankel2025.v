@@ -1,7 +1,7 @@
 module tt_um_fsm_Yankel2025 (
   input        clk,
   input        reset,
-  input        ena,
+  //input        ena,
   input  [7:0] ui_in,
   output [7:0] uo_out,
  // input  [7:0] uio_in,
