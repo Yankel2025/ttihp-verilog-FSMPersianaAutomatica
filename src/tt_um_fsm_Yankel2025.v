@@ -5,9 +5,10 @@ module tt_um_fsm_Yankel2025 (
   input        ena,
   input  [7:0] ui_in,
   output [7:0] uo_out,
-  input  [7:0] uio
+  input  [7:0] uio_in,
+  output [7:0] uio_out,
   output [7:0] uio_oe
-);
+);  
   wire [7:0] sw = ui_in;  // sw[8:0]
   wire btnC = ~rst_n;
   wire [2:0] led;
@@ -59,7 +60,7 @@ module tt_um_fsm_Yankel2025 (
     assign led[0] = abajo;    // muestra si esta bajando persiana
 
   assign uo_out  = {5'b00000, led};  // sólo usamos bits 2:0
-  assign uio_out = 8'b00000000;      // no estamos manejando salida bidireccional
-  assign uio_oe = 8'b11111111;    // Configura todos los pines uio como salidas
+  assign uio_out = 8'b00000000;
+  assign uio_oe  = 8'b00000000;    // Configura todos los pines uio como entradas
     
 endmodule
