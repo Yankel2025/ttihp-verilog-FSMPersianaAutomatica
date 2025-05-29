@@ -1,4 +1,4 @@
-
+`timescale 1 ns / 1 ps
 module FSM_Persiana(input wire abierta,media,cerrada,automatico,
                      input wire Reloj,reset,
                      input wire Ssup,Smed,Sinf,
