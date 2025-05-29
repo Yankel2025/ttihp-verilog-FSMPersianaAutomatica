@@ -1,15 +1,15 @@
 module tt_um_fsm_Yankel2025 (
   input        clk,
-  input        rst_n,
+  input        reset,
   input        ena,
   input  [7:0] ui_in,
   output [7:0] uo_out,
-  input  [7:0] uio_in,
-  output [7:0] uio_out,
-  output [7:0] uio_oe
+ // input  [7:0] uio_in,
+//  output [7:0] uio_out,
+ // output [7:0] uio_oe
 );
-  wire [8:0] sw = {uio_in[0], ui_in};  // sw[8:0]
-  wire btnC = ~rst_n;
+  wire [7:0] sw = ui_in;  // sw[8:0]
+  wire btnC = ~reset;
   wire [2:0] led;
   
     reg cerrar,medio,abrir;    // variables internas de acciones de usuario
@@ -21,10 +21,10 @@ module tt_um_fsm_Yankel2025 (
     wire arriba, abajo;    // acciones de la persiana
     
     assign reseteo = btnC;    // guarda señal de reinicio
-    assign Sensor = sw[5:4];    // recibe señal de sensor
-    assign Sinfe = sw[6];    // recibe señales de los sensores de la persiana
-    assign Smedi = sw[7];
-    assign Ssupe = sw[8];
+    assign Sensor = sw[4:3];    // recibe señal de sensor
+    assign Sinfe = sw[5];    // recibe señales de los sensores de la persiana
+    assign Smedi = sw[6];
+    assign Ssupe = sw[7];
     
     always @(posedge clk)    // escalado de tiempo de la señal de reloj interna de 100MHz
         clk_nuevo <= clk_nuevo + 1;
@@ -38,11 +38,11 @@ module tt_um_fsm_Yankel2025 (
                 abrir <= 1'b0;
                 auto <= 1'b0;
             end else begin
-                case (sw[3:0])
-                4'b0001: begin cerrar <= 1; medio <= 0; abrir <= 0; auto <= 0; end
-                4'b0010: begin cerrar <= 0; medio <= 1; abrir <= 0; auto <= 0; end
-                4'b0100: begin cerrar <= 0; medio <= 0; abrir <= 1; auto <= 0; end
-                4'b1000: begin cerrar <= 0; medio <= 0; abrir <= 0; auto <= 1; end
+              case (sw[2:0])
+                3'b001: begin cerrar <= 1; medio <= 0; abrir <= 0; auto <= 0; end
+                3'b010: begin cerrar <= 0; medio <= 1; abrir <= 0; auto <= 0; end
+                3'b011: begin cerrar <= 0; medio <= 0; abrir <= 1; auto <= 0; end
+                3'b100: begin cerrar <= 0; medio <= 0; abrir <= 0; auto <= 1; end
                 default: begin cerrar <= 0; medio <= 0; abrir <= 0; auto <= 0; end
             endcase
             end
@@ -59,7 +59,7 @@ module tt_um_fsm_Yankel2025 (
     assign led[0] = abajo;    // muestra si esta bajando persiana
 
   assign uo_out  = {5'b00000, led};  // sólo usamos bits 2:0
-  assign uio_out = 8'b00000000;      // no estamos manejando salida bidireccional
-  assign uio_oe  = 8'b00000000;      // no activamos salida en ningún uio pin
+  //assign uio_out = 8'b00000000;      // no estamos manejando salida bidireccional
+  //assign uio_oe  = 8'b00000000;      // no activamos salida en ningún uio pin
     
 endmodule
