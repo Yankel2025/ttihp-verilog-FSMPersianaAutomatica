@@ -23,6 +23,10 @@ module tb ();
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
 
+  // Clock generation (100 MHz -> periodo de 10ns)
+  initial clk = 0;
+  always #5 clk = ~clk;
+
   // Replace tt_um_example with your module name:
   tt_um_fsm_Yankel2025 user_project (
       .ui_in  (ui_in),    // Dedicated inputs
