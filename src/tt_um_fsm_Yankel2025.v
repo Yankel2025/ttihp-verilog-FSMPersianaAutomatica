@@ -38,7 +38,7 @@ module tt_um_fsm_Yankel2025 (
                 medio <= 1'b0;
                 abrir <= 1'b0;
                 auto <= 1'b0;
-            end else begin
+            end else if (ena) begin
               case (sw[2:0])
                 3'b001: begin cerrar <= 1; medio <= 0; abrir <= 0; auto <= 0; end
                 3'b010: begin cerrar <= 0; medio <= 1; abrir <= 0; auto <= 0; end
