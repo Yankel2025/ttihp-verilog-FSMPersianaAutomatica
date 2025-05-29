@@ -1,4 +1,4 @@
-`timescale 1 ns / 1 ps
+//`timescale 1 ns / 1 ps
 module Mealy(input wire [1:0] P,
              input wire Ssup,Smed,Sinf,reloj,reset,
              output reg subir,bajar);
