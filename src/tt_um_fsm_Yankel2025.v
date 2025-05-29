@@ -1,3 +1,4 @@
+`timescale 1 ns / 1 ps
 module tt_um_fsm_Yankel2025 (
   input        clk,
   input        rst_n,    // Reset activo en bajo
