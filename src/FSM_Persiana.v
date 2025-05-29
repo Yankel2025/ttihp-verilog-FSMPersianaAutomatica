@@ -6,7 +6,7 @@ module FSM_Persiana(input wire abierta,media,cerrada,automatico,
                      output wire subir, bajar);
 wire [1:0] posicion;
 
-FSM_moore moore(
+Moore moore(
   .ab(abierta),
   .me(media),
   .ba(cerrada),
@@ -17,7 +17,7 @@ FSM_moore moore(
   .P(posicion)
 );
 
-FSM_mealy mealy(
+Mealy mealy(
   .P(posicion),
   .Ssup(Ssup),
   .Smed(Smed),
