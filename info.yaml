@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project: 
-  title:        "FSM Persiana Automatica"      # Project title
+  title:        "FSM Persiana Automatica Yankel2025"      # Project title
   author:       "Yankel2025"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "Control de persiana automatica o por comandos de ususario."      # One line description of what your project does
@@ -26,14 +26,14 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "sw[0]"
-  ui[1]: "sw[1]"
-  ui[2]: "sw[2]"
-  ui[3]: "sw[3]"
-  ui[4]: "sw[4]"
-  ui[5]: "sw[5]"
-  ui[6]: "sw[6]"
-  ui[7]: "sw[7]"
+  ui[0]: "sw0"
+  ui[1]: "sw1"
+  ui[2]: "sw2"
+  ui[3]: "Sensor0"
+  ui[4]: "Sensor1"
+  ui[5]: "Sinf"
+  ui[6]: "Smed"
+  ui[7]: "Ssup"
 
   # Outputs
   uo[0]: "led[0]"
