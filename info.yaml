@@ -36,9 +36,9 @@ pinout:
   ui[7]: "Ssup"
 
   # Outputs
-  uo[0]: "led[0]"
-  uo[1]: "led[1]"
-  uo[2]: "led[2]"
+  uo[0]: "Bajar"
+  uo[1]: "Subir"
+  uo[2]: "Reloj"
   uo[3]: ""
   uo[4]: ""
   uo[5]: ""
