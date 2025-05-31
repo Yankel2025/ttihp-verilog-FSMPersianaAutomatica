@@ -31,7 +31,7 @@ module tt_um_fsm_Yankel2025 (
         clk_nuevo <= clk_nuevo + 1;
     
     
-    always @(posedge clk_nuevo[24], posedge reseteo)
+  always @(posedge clk_nuevo[24] or posedge reseteo)
         begin
             if (reseteo) begin
                 cerrar <= 1'b0;
