@@ -5,7 +5,9 @@ module tt_um_fsm_Yankel2025 (
   input        ena,
   input  [7:0] ui_in,
   output [7:0] uo_out,
+  /* verilator lint_off UNUSEDSIGNAL */
   input  [7:0] uio_in,
+  /* verilator lint_on UNUSEDSIGNAL */
   output [7:0] uio_out,
   output [7:0] uio_oe
 );  
