@@ -24,7 +24,7 @@ module Moore(input wire ab,me,ba,auto,reloj,reset,
  end 
 
   //REGISTRO
-  always @(posedge reloj,posedge reset)
+  always @(posedge reloj or posedge reset)
     if (reset) state<=2'b00;
     else state<=nextstate;
     
